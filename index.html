@@ -1,0 +1,74 @@
+<html>
+
+<head>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css">
+	<script src="items.js"></script>
+	<script src="lib.js"></script>
+	<script src="client.js"></script>
+</head>
+
+<body>
+	<div id="myModal" class="modal">
+		<div onclick="closeModal()" class="close" style="padding-right:10px">&times;</div>
+		<div>
+			<canvas id="myChart"></canvas>
+		</div>
+		<!--<div id="myChart"></div>-->
+	</div>
+	<div>
+		<span style="font-size : x-large">BB 0.2</span>
+		<a onclick="draw()"><i class="mdi mdi-chart-line" style="padding:10px 10px 10px 10px"></i></a>
+		<a style="font-size : x-large" onclick="unselect()">Clear</a>
+		<span style="float : right">
+       <label for="fromDate">From</label>&nbsp;<input type="datetime-local" id="fromDate"/>
+       <label for="toDate">To</label>&nbsp;<input type="datetime-local" id="toDate" />
+    </span>
+	</div>
+	<div>
+		<!--<details>
+            <summary>Soba</summary>-->
+		<table id="tBridge">
+			<!--<tr><th>Device</th><th>Value</th><th>Graph</th><tr>-->
+		</table>
+		<!--</details>-->
+		<details>
+			<summary>Grijanje</summary>
+			<table>
+				<tr>
+					<td>
+						<table id="tGrijanje">
+						</table>
+					</td>
+					<td>
+						SQL <input id="sql" type="checkbox" onclick="sqlClicked()"></input><br>
+						<a onclick="drawTemps()">Temperature</a><br>
+						<a onclick="drawPumps()">Pumpe</a><br>
+					</td>
+				</tr>
+			</table>
+		</details>
+		<details>
+			<summary>ESP</summary>
+			<table id="tESP">
+			</table>
+		</details>
+		<details>
+			<summary>ESP1</summary>
+			<table id="tESP1">
+			</table>
+		</details>
+	</div>
+
+</body>
+
+</html>

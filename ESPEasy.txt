@@ -1,0 +1,21 @@
+http://www.esp8266.nu/index.php/Main_Page
+http://www.esp8266.nu/index.php/EasySetup
+http://www.esp8266.nu/index.php/ESPEasy_Command_Reference
+
+Initial load: Arduino IDE
+
+Library:
+https://sourceforge.net/projects/espeasy/
+
+Config:
+http://192.168.0.25/config
+
+Update: 
+http://192.168.0.25/tools
+
+http://192.168.0.25/control?cmd=status,GPIO,12
+
+
+RM Bridge
+
+http://192.168.0.19:7474/?cmd={api_id:1006,mac:%22b4:43:0d:38:b0:46%22}

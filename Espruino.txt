@@ -1,0 +1,58 @@
+To get into flash mode you need to pull-up gpio2, and pull down gpio0 and gpio15. Afterwards to run the flashed firware you need to pull-up gpio0 and gpio2, and pull down gpio15 (i.e. gpio0 changes). To issue a reset, you briefly pull either reset or ch_en (chip-enable) low. A pull-up resistor is recommended on both 
+
+pull-up gpio2, and pull down gpio0 and gpio15 (ok if white board) -- gpio0 is changed
+
+reset
+
+http://www.espruino.com/Download
+
+cd downloadedFirmware
+
+c:\python27\python c:\python27\scripts\esptool.py --port COM4 --baud 115200 write_flash --flash_freq 80m --flash_mode qio --flash_size 32m 0x0000 boot_v1.6.bin 0x1000 espruino_esp8266_user1.bin 0x3FC000 esp_init_data_default.bin 0x37E000 blank.bin
+(pazi bilo 0x3FE000 blank.bin)
+
+
+pull-up gpio0 and gpio2, and pull down gpio15 (ok if white board)
+
+reset
+
+U Arduino serial monitoru ili putty serial na 115200:
+var wifi = require("Wifi");
+wifi.connect("Megi", {password: "6e08ccb974"}, function(err) { if(err) console.log(err); else console.log("connected!");});
+wifi.getStatus();
+wifi.getIP();
+wifi.setDHCPHostname("espruino");
+wifi.save();
+
+wifi.startAP("my-ssid")
+wifi.getAPIP()
+wifi.stopAP()
+
+Update over wifi: http://www.espruino.com/ESP8266_Flashing
+Or thru Espruino Web IDE
+
+
+
+var f = require ('Flash')
+f.erasePage(1048576);
+var a = new Uint8Array(4)
+a[0] = 1
+a[1] = 2
+a[2] = 3
+a[3] = 4
+f.write (a, 1048576)
+a[0] = 9
+a[1] = 9
+a[2] = 9
+a[3] = 9
+a = f.read (4, 1048576)
+
+
+var f = require ('Flash')
+var a = new Uint8Array(4)
+a[0] = 11
+a[1] = 22
+a[2] = 33
+a[3] = 44
+f.write (a, 1048580)
+a = f.read (8, 1048576)
